@@ -4,6 +4,7 @@
 { act, react, lift, link, signal, signals } = require("../../core/modules/dataflow")
 util = require('../../core/modules/util')
 lightning = require('../../core/modules/lightning')
+authorizationDialog = require('./authorization-dialog')
 
 getParameterValue = (type, default_value, actual_value) ->
   switch type
@@ -748,6 +749,19 @@ module.exports = (_, _go, _model, refresh) ->
         else
           _pojoPreview "<pre>#{util.highlight result, 'java'}</pre>"
 
+    downloadPojoIfAuthed = ->
+      _.dialog authorizationDialog, (result) ->
+        downloadPojo() if result
+
+    downloadMojoIfAuthed = ->
+      _.dialog authorizationDialog, (result) ->
+        downloadMojo() if result
+
+    exportModelIfAuthed = ->
+      _.dialog authorizationDialog, (result) ->
+        exportModel() if result
+
+
     downloadPojo = ->
       window.open _.ContextPath + "3/Models.java/#{encodeURIComponent _model.model_id.name}", '_blank'
 
@@ -778,12 +792,12 @@ module.exports = (_, _go, _model, refresh) ->
     predict: predict
     inspect: inspect
     previewPojo: previewPojo
-    downloadPojo: downloadPojo
+    downloadPojoIfAuthed: downloadPojoIfAuthed
     downloadGenJar: downloadGenJar
-    downloadMojo: downloadMojo
+    downloadMojoIfAuthed: downloadMojoIfAuthed
     pojoPreview: _pojoPreview
     isPojoLoaded: _isPojoLoaded
-    exportModel: exportModel
+    exportModelIfAuthed: exportModelIfAuthed
     deleteModel: deleteModel
 
 

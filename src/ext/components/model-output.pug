@@ -29,15 +29,15 @@
 
             +button('Predict&hellip;', 'bolt', 'predict')
             //- +button('Clone this model&hellip;', 'copy', 'cloneModel')
-            button.flow-button(type='button' data-bind="click: downloadPojo, enable: $data.havePojo")
+            button.flow-button(type='button' data-bind="click: downloadPojoIfAuthed, enable: $data.havePojo")
               i.fa.fa-download
               span
               | Download POJO
-            button.flow-button(type='button' data-bind="click: downloadMojo, enable: $data.haveMojo")
+            button.flow-button(type='button' data-bind="click: downloadMojoIfAuthed, enable: $data.haveMojo")
               i.fa.fa-download
               span
               | Download Model Deployment Package (MOJO)
-            +button('Export', 'save', 'exportModel')
+            +button('Export', 'save', 'exportModelIfAuthed')
             +button('Inspect', 'list', 'inspect')
             +button('Delete', 'trash-o', 'deleteModel')
             +button('Download Gen Model', 'download', 'downloadGenJar')

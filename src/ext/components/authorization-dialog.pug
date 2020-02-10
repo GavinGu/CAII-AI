@@ -1,0 +1,15 @@
+#authorization-dialog.modal.fade(tabindex='-1', role='dialog')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal')
+          span ×
+          span.sr-only Close
+        h4.modal-title Authorization Code
+      .modal-body
+        form(enctype='multipart/form-data')
+          input.flow-textbox(name='authorization' style='width:100%' type='password' data-bind='textInput:codeText, click:textGetsFocus' placeholder='请输入授权码')
+        p(style='color:red' data-bind='visible:warnWrongCode') 授权码不正确，暂时无法使用相关功能！
+      .modal-footer
+        button.btn.btn-default(type='button' data-bind='click:decline') Cancel
+        button.btn.btn-primary(type='button' data-bind='click:accept') Submit
