@@ -11,7 +11,7 @@ _homeContent = null
 
 _homeMarkdown = """
 <blockquote>
-Using Flow for the first time?
+中国工业互联网研究院 AI 平台快速入门
 <br/>
 <div style='margin-top:10px'>
   <button type='button' data-action='get-flow' data-pack-name='examples' data-flow-name='QuickStartVideos.flow' class='flow-button'><i class='fa fa-file-movie-o'></i><span>Quickstart Videos</span>
@@ -19,7 +19,9 @@ Using Flow for the first time?
 </div>
 </blockquote>
 
-Or, <a href='#' data-action='get-pack' data-pack-name='examples'>view example Flows</a> to explore and learn H<sub>2</sub>O.
+或者，<a href='#' data-action='get-pack' data-pack-name='examples'>查看示例</a>来学习中国工业互联网研究院 AI 平台。
+
+<!--
 
 ###### Star H2O on Github!
 
@@ -30,15 +32,17 @@ Or, <a href='#' data-action='get-pack' data-pack-name='examples'>view example Fl
 </span>
 <br/>
 
+-->
+
 ###### General
 
 %HELP_TOPICS%
 
 ###### Examples
 
-Flow packs are a great way to explore and learn H<sub>2</sub>O. Try out these Flows and run them in your browser.<br/><a href='#' data-action='get-packs'>Browse installed packs...</a>
+平台内置的示例包可以帮助使用者更好的了解我们的 AI 平台，用户可以在当前浏览器中安装并运行这些示例包。<br/><a href='#' data-action='get-packs'>浏览已安装的包...</a>
 
-###### H<sub>2</sub>O REST API
+###### 中国工业互联网研究院 AI 平台 REST API
 
 - <a href='#' data-action='endpoints'>Routes</a>
 - <a href='#' data-action='schemas'>Schemas</a>

@@ -20,43 +20,43 @@ lightning = require('../../core/modules/lightning')
 
 _assistance =
   importFiles:
-    description: 'Import file(s) into H<sub>2</sub>O'
+    description: '导入文件'
     icon: 'files-o'
   importSqlTable:
-    description: 'Import SQL table into H<sub>2</sub>O'
+    description: '导入 SQL 表'
     icon: 'table'
   getFrames:
-    description: 'Get a list of frames in H<sub>2</sub>O'
+    description: '获取 Frame 列表'
     icon: 'table'
   splitFrame:
-    description: 'Split a frame into two or more frames'
+    description: '分割 Frame'
     icon: 'scissors'
   mergeFrames:
-    description: 'Merge two frames into one'
+    description: '合并 Frame'
     icon: 'link'
   getModels:
-    description: 'Get a list of models in H<sub>2</sub>O'
+    description: '获取模型列表'
     icon: 'cubes'
   getGrids:
-    description: 'Get a list of grid search results in H<sub>2</sub>O'
+    description: '获取网格搜索结果列表'
     icon: 'th'
   getPredictions:
-    description: 'Get a list of predictions in H<sub>2</sub>O'
+    description: '获取预测列表'
     icon: 'bolt'
   getJobs:
-    description: 'Get a list of jobs running in H<sub>2</sub>O'
+    description: '获取正在运行的任务列表'
     icon: 'tasks'
   runAutoML:
-    description: 'Automatically train and tune many models'
+    description: '自动训练和调整模型'
     icon: 'sitemap'
   buildModel:
-    description: 'Build a model'
+    description: '构建模型'
     icon: 'cube'
   importModel:
-    description: 'Import a saved model'
+    description: '导入模型'
     icon: 'cube'
   predict:
-    description: 'Make a prediction'
+    description: '进行预测'
     icon: 'bolt'
 
 parseNumbers = (source) ->
