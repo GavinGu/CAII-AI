@@ -613,7 +613,7 @@ exports.init = (_, _renderers) ->
       createMenuItem '列出所有模型', executeCommand 'getModels'
       createMenuItem '列出网格搜索结果', executeCommand 'getGrids'
       createMenuItem '导入模型...', executeCommand 'importModel'
-      createMenuItem '导出模型...', executeCommand 'exportModel'
+      # createMenuItem '导出模型...', executeCommand 'exportModel'
     ]
 
     [
