@@ -563,34 +563,34 @@ exports.init = (_, _renderers) ->
   _menus = signal null
 
   menuCell = [
-        createMenuItem 'Run Cell', runCell, ['ctrl', 'enter']
+        createMenuItem '运行单元', runCell, ['ctrl', 'enter']
         menuDivider
-        createMenuItem 'Cut Cell', cutCell, ['x']
-        createMenuItem 'Copy Cell', copyCell, ['c']
-        createMenuItem 'Paste Cell Above', pasteCellAbove, ['shift', 'v']
-        createMenuItem 'Paste Cell Below', pasteCellBelow, ['v']
+        createMenuItem '单元剪切', cutCell, ['x']
+        createMenuItem '单元复制', copyCell, ['c']
+        createMenuItem '在上方粘贴单元', pasteCellAbove, ['shift', 'v']
+        createMenuItem '在下方粘贴单元', pasteCellBelow, ['v']
         #TODO createMenuItem 'Paste Cell and Replace', pasteCellandReplace, yes
-        createMenuItem 'Delete Cell', deleteCell, ['d', 'd']
-        createMenuItem 'Undo Delete Cell', undoLastDelete, ['z']
+        createMenuItem '删除单元', deleteCell, ['d', 'd']
+        createMenuItem '撤销删除单元操作', undoLastDelete, ['z']
         menuDivider
-        createMenuItem 'Move Cell Up', moveCellUp, ['ctrl', 'k']
-        createMenuItem 'Move Cell Down', moveCellDown, ['ctrl', 'j']
+        createMenuItem '向上移动单元', moveCellUp, ['ctrl', 'k']
+        createMenuItem '向下移动单元', moveCellDown, ['ctrl', 'j']
         menuDivider
-        createMenuItem 'Insert Cell Above', insertNewCellAbove, ['a']
-        createMenuItem 'Insert Cell Below', insertNewCellBelow, ['b']
+        createMenuItem '在上方插入单元', insertNewCellAbove, ['a']
+        createMenuItem '在下方插入单元', insertNewCellBelow, ['b']
         #TODO createMenuItem 'Split Cell', splitCell
         #TODO createMenuItem 'Merge Cell Above', mergeCellAbove, yes
         #TODO createMenuItem 'Merge Cell Below', mergeCellBelow
         menuDivider
-        createMenuItem 'Toggle Cell Input', toggleInput
-        createMenuItem 'Toggle Cell Output', toggleOutput, ['o']
-        createMenuItem 'Clear Cell Output', clearCell
+        createMenuItem '切换单元输入', toggleInput
+        createMenuItem '切换单元输出', toggleOutput, ['o']
+        createMenuItem '清除单元输出', clearCell
         ]
 
   menuCellSW = [
         menuDivider
-        createMenuItem 'Insert Scala Cell Above', insertNewScalaCellAbove
-        createMenuItem 'Insert Scala Cell Below', insertNewScalaCellBelow
+        createMenuItem '在上方插入 Scala 单元', insertNewScalaCellAbove
+        createMenuItem '在下方插入 Scala 单元', insertNewScalaCellBelow
         ]
   if _.onSparklingWater
     menuCell = [menuCell..., menuCellSW...]
@@ -603,59 +603,59 @@ exports.init = (_, _renderers) ->
       .filter (builder) -> builder.algo != "generic"
       .map (builder) -> createMenuItem("#{ builder.algo_full_name }...", executeCommand "buildModel #{stringify builder.algo}")
     modelMenuItems = [
-        createMenuItem 'Run AutoML...', executeCommand 'runAutoML'
+        createMenuItem '运行 AutoML...', executeCommand 'runAutoML'
         menuDivider
     ]
     modelMenuItems = modelMenuItems.concat builderMenuItems
     modelMenuItems = modelMenuItems.concat [ menuDivider ]
     modelMenuItems = modelMenuItems.concat mojoModelMenuItem
     modelMenuItems = modelMenuItems.concat [
-      createMenuItem 'List All Models', executeCommand 'getModels'
-      createMenuItem 'List Grid Search Results', executeCommand 'getGrids'
-      createMenuItem 'Import Model...', executeCommand 'importModel'
-      createMenuItem 'Export Model...', executeCommand 'exportModel'
+      createMenuItem '列出所有模型', executeCommand 'getModels'
+      createMenuItem '列出网格搜索结果', executeCommand 'getGrids'
+      createMenuItem '导入模型...', executeCommand 'importModel'
+      createMenuItem '导出模型...', executeCommand 'exportModel'
     ]
 
     [
-      createMenu 'Flow', [
-        createMenuItem 'New Flow', createNotebook
-        createMenuItem 'Open Flow...', promptForNotebook
-        createMenuItem 'Save Flow', saveNotebook, ['s']
-        createMenuItem 'Make a Copy...', duplicateNotebook
+      createMenu '实例', [
+        createMenuItem '新建实例', createNotebook
+        createMenuItem '打开实例...', promptForNotebook
+        createMenuItem '保存实例', saveNotebook, ['s']
+        createMenuItem '复制...', duplicateNotebook
         menuDivider
-        createMenuItem 'Run All Cells', runAllCells
-        createMenuItem 'Run All Cells Below', continueRunningAllCells
+        createMenuItem '运行所有单元', runAllCells
+        createMenuItem '运行当前页面所有单元', continueRunningAllCells
         menuDivider
-        createMenuItem 'Toggle All Cell Inputs', toggleAllInputs
-        createMenuItem 'Toggle All Cell Outputs', toggleAllOutputs
-        createMenuItem 'Clear All Cell Outputs', clearAllCells
+        createMenuItem '切换所有单元输入', toggleAllInputs
+        createMenuItem '切换所有单元输出', toggleAllOutputs
+        createMenuItem '清除所有单元输出', clearAllCells
         menuDivider
-        createMenuItem 'Download this Flow...', exportNotebook
+        createMenuItem '下载当前实例...', exportNotebook
       ]
     ,
-      createMenu 'Cell', menuCell
+      createMenu '单元', menuCell
     ,
-      createMenu 'Data', [
-        createMenuItem 'Import Files...', executeCommand 'importFiles'
-        createMenuItem 'Import SQL Table...', executeCommand 'importSqlTable'
-        createMenuItem 'Upload File...', uploadFile
-        createMenuItem 'Split Frame...', executeCommand 'splitFrame'
-        createMenuItem 'Merge Frames...', executeCommand 'mergeFrames'
+      createMenu '数据', [
+        createMenuItem '导入文件...', executeCommand 'importFiles'
+        createMenuItem '导入 SQL 表...', executeCommand 'importSqlTable'
+        createMenuItem '上传文件...', uploadFile
+        createMenuItem '分割 Frame...', executeCommand 'splitFrame'
+        createMenuItem '合并 Frame...', executeCommand 'mergeFrames'
         menuDivider
-        createMenuItem 'List All Frames', executeCommand 'getFrames'
+        createMenuItem '列出所有 Frame', executeCommand 'getFrames'
         menuDivider
-        createMenuItem 'Impute...', executeCommand 'imputeColumn'
+        createMenuItem '错误分析...', executeCommand 'imputeColumn'
         #TODO Quantiles
         #TODO Interaction
       ]
     ,
-      createMenu 'Model', modelMenuItems
+      createMenu '模型', modelMenuItems
     ,
-      createMenu 'Score', [
-        createMenuItem 'Predict...', executeCommand 'predict'
-        createMenuItem 'Partial Dependence Plots...', executeCommand 'buildPartialDependence'
+      createMenu '分数', [
+        createMenuItem '预测...', executeCommand 'predict'
+        createMenuItem '构建部分依赖...', executeCommand 'buildPartialDependence'
         menuDivider
-        createMenuItem 'List All Predictions', executeCommand 'getPredictions'
+        createMenuItem '列出所有预测', executeCommand 'getPredictions'
         #TODO Confusion Matrix
         #TODO AUC
         #TODO Hit Ratio
@@ -664,44 +664,44 @@ exports.init = (_, _renderers) ->
         #TODO Multi-model Scoring
       ]
     ,
-      createMenu 'Admin', [
-        createMenuItem 'Jobs', executeCommand 'getJobs'
-        createMenuItem 'Cluster Status', executeCommand 'getCloud'
-        createMenuItem 'Water Meter (CPU meter)', goToH2OUrl 'perfbar.html'
+      createMenu '管理', [
+        createMenuItem '任务', executeCommand 'getJobs'
+        createMenuItem '集群状态', executeCommand 'getCloud'
+        createMenuItem 'CPU 监测"', goToH2OUrl 'perfbar.html'
         menuDivider
-        createMenuHeader 'Inspect Log'
-        createMenuItem 'View Log', executeCommand 'getLogFile'
-        createMenuItem 'Download Logs', goToH2OUrl '3/Logs/download'
+        createMenuHeader '日志'
+        createMenuItem '查看日志', executeCommand 'getLogFile'
+        createMenuItem '下载日志', goToH2OUrl '3/Logs/download'
         menuDivider
-        createMenuHeader 'Advanced'
-        createMenuItem 'Download Gen Model', goToH2OUrl '3/h2o-genmodel.jar'
-        createMenuItem 'Create Synthetic Frame...', executeCommand 'createFrame'
-        createMenuItem 'Stack Trace', executeCommand 'getStackTrace'
-        createMenuItem 'Network Test', executeCommand 'testNetwork'
+        createMenuHeader '高级'
+        createMenuItem '下载 Gen 模型', goToH2OUrl '3/h2o-genmodel.jar'
+        createMenuItem '创建合成的 Frame...', executeCommand 'createFrame'
+        createMenuItem '堆栈监测', executeCommand 'getStackTrace'
+        createMenuItem '测试网络', executeCommand 'testNetwork'
         #TODO Cluster I/O
-        createMenuItem 'Profiler', executeCommand 'getProfile depth: 10'
-        createMenuItem 'Timeline', executeCommand 'getTimeline'
+        createMenuItem '分析工具', executeCommand 'getProfile depth: 10'
+        createMenuItem '时间线', executeCommand 'getTimeline'
         #TODO UDP Drop Test
         #TODO Task Status
-        createMenuItem 'Shut Down', shutdown
+        createMenuItem '关闭', shutdown
       ]
     ,
-      createMenu 'Help', [
+      createMenu '帮助', [
         #TODO createMenuItem 'Tour', startTour, yes
-        createMenuItem 'Assist Me', executeCommand 'assist'
+        createMenuItem '助手', executeCommand 'assist'
         menuDivider
-        createMenuItem 'Contents', showHelp
-        createMenuItem 'Keyboard Shortcuts', displayKeyboardShortcuts, ['h']
+        createMenuItem '目录', showHelp
+        createMenuItem '键盘快捷键', displayKeyboardShortcuts, ['h']
         menuDivider
-        createMenuItem 'Documentation', displayDocumentation
-        createMenuItem 'FAQ', displayFAQ
-        createMenuItem 'H2O.ai', goToUrl 'http://h2o.ai/'
-        createMenuItem 'H2O on Github', goToUrl 'https://github.com/h2oai/h2o-3'
-        createMenuItem 'Report an issue', goToUrl 'http://jira.h2o.ai'
-        createMenuItem 'Forum / Ask a question', goToUrl 'https://groups.google.com/d/forum/h2ostream'
-        menuDivider
+        createMenuItem '文档', displayDocumentation
+        createMenuItem '常见问题', displayFAQ
+        createMenuItem '了解我们', goToUrl 'https://www.sohu.com/a/299736761_658106'
+        # createMenuItem 'H2O on Github', goToUrl 'https://github.com/h2oai/h2o-3'
+        # createMenuItem 'Report an issue', goToUrl 'http://jira.h2o.ai'
+        # createMenuItem 'Forum / Ask a question', goToUrl 'https://groups.google.com/d/forum/h2ostream'
+        # menuDivider
         #TODO Tutorial Flows
-        createMenuItem 'About', displayAbout
+        # createMenuItem '关于', displayAbout
       ]
     ]
 
