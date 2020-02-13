@@ -750,16 +750,31 @@ module.exports = (_, _go, _model, refresh) ->
           _pojoPreview "<pre>#{util.highlight result, 'java'}</pre>"
 
     downloadPojoIfAuthed = ->
-      _.dialog authorizationDialog, (result) ->
-        downloadPojo() if result
+      unless window.authCodeVerified
+        _.dialog authorizationDialog, (result) ->
+          if result
+            window.authCodeVerified = yes
+            downloadPojo()
+      else
+        downloadPojo()
 
     downloadMojoIfAuthed = ->
-      _.dialog authorizationDialog, (result) ->
-        downloadMojo() if result
+      unless window.authCodeVerified
+        _.dialog authorizationDialog, (result) ->
+          if result
+            window.authCodeVerified = yes
+            downloadMojo()
+      else
+        downloadMojo()
 
     exportModelIfAuthed = ->
-      _.dialog authorizationDialog, (result) ->
-        exportModel() if result
+      unless window.authCodeVerified
+        _.dialog authorizationDialog, (result) ->
+          if result
+            window.authCodeVerified = yes
+            exportModel()
+      else
+        exportModel()
 
 
     downloadPojo = ->

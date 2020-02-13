@@ -18,6 +18,8 @@ form = require('../../core/components/form')
 h2o = require('./h2o')
 lightning = require('../../core/modules/lightning')
 
+window.authCodeVerified = no
+
 _assistance =
   importFiles:
     description: '导入文件'
