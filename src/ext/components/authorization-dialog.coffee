@@ -7,10 +7,11 @@ module.exports = (_, _go) ->
 
   validateCode = (code) ->
     md5Value = md5 code
-    if md5Value == '63db31229b85656143db70a97fc11797' # aiworld2020
-      yes
-    else
-      no
+    switch md5Value
+      # aiworld2020, caiiauthcode, welcometouse
+      when '63db31229b85656143db70a97fc11797', 'dd841bec9b67f36ff2ef82c83712450d', 'f2a8a160c1034e66b1cfa3e234930b92'
+      then yes
+      else no
 
   textGetsFocus = ->
     _warnWrongCode no
