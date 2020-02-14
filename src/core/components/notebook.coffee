@@ -693,12 +693,12 @@ exports.init = (_, _renderers) ->
         createMenuItem '目录', showHelp
         createMenuItem '键盘快捷键', displayKeyboardShortcuts, ['h']
         menuDivider
-        createMenuItem '文档', displayDocumentation
-        createMenuItem '常见问题', displayFAQ
+        # createMenuItem '文档', displayDocumentation
+        # createMenuItem '常见问题', displayFAQ
         createMenuItem '了解我们', goToUrl 'https://www.sohu.com/a/299736761_658106'
-        # createMenuItem 'H2O on Github', goToUrl 'https://github.com/h2oai/h2o-3'
-        # createMenuItem 'Report an issue', goToUrl 'http://jira.h2o.ai'
-        # createMenuItem 'Forum / Ask a question', goToUrl 'https://groups.google.com/d/forum/h2ostream'
+        # createMenuItem 'Github', goToUrl 'https://github.com/h2oai/h2o-3'
+        # createMenuItem '问题反馈', goToUrl 'http://jira.h2o.ai'
+        # createMenuItem '论坛', goToUrl 'https://groups.google.com/d/forum/h2ostream'
         # menuDivider
         #TODO Tutorial Flows
         # createMenuItem '关于', displayAbout

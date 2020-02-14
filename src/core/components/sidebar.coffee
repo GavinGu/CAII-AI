@@ -6,7 +6,7 @@ clipboard = require('./clipboard')
 help = require('./help')
 
 exports.init = (_, cells) ->
-  _mode = signal 'help'
+  _mode = signal 'outline'
 
   _outline = outline.init _, cells
   _isOutlineMode = lift _mode, (mode) -> mode is 'outline'
