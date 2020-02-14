@@ -5,7 +5,7 @@
   table.flow-form
     tbody
       tr
-        th(width='125') Search:
+        th(width='125') 搜索文件：
         td
           table(width='100%')
             tbody
@@ -24,7 +24,7 @@
 
       // ko if:hasImportedFiles
       tr
-        th Search Results:
+        th 文件搜索结果：
         // ko if:hasUnselectedFiles
         td
           div
@@ -43,17 +43,17 @@
             // /ko
         // /ko
         // ko ifnot:hasUnselectedFiles
-        td (All files added)
+        td （所有文件已添加）
         // /ko
       // /ko
       tr
-        th Selected Files:
+        th 选择的文件：
         td
           div
             span(data-bind='text:selectedFileCount')
             |    
             // ko if:hasSelectedFiles
-            a(href='#' data-bind='click:deselectAllFiles') Clear All
+            a(href='#' data-bind='click:deselectAllFiles') 清空
             // /ko
 
           // ko if:hasSelectedFiles
@@ -65,7 +65,7 @@
             // /ko
           // /ko
       tr.flow-actions
-        th Actions:
+        th 操作：
         td
           button.flow-button(type='button' data-bind='click:importSelectedFiles, enable:hasSelectedFiles')
             i.fa.fa-cloud-upload
