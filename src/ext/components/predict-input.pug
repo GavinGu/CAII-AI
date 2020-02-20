@@ -4,12 +4,12 @@
   table.flow-form
     tr
       th(width='1')
-        label Name:
+        label 命名:
       td
         input(data-bind="value:destinationKey")
     tr
       th(width='1')
-        label Model:
+        label 模型:
       td
         // ko if:hasModels
         span(data-bind='text:selectedModelsCaption')
@@ -66,11 +66,11 @@
     // /ko
     tr
       th
-        label Actions:
+        label 操作:
       td
         button.flow-button(type='button' data-bind='click:predict, enable:canPredict')
           i.fa.fa-bolt
-          span Predict
+          span 预测
 
     // /ko
 
