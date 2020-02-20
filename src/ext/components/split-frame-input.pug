@@ -12,13 +12,13 @@
           select(data-bind="options:frames, value:frame, optionsCaption:'(Select)'")
       tr
         th
-          label Splits:
+          label 分割:
         td
           table
             thead
               tr
-                th(style='text-align:left') Ratio
-                th Key
+                th(style='text-align:left') 比例
+                th 分割后命名
             tbody
               // ko foreach:splits
               tr
@@ -36,10 +36,10 @@
                   input.flow-textbox(type='text' style='width:300px' data-bind="value:lastSplitKey")
                 td &nbsp; 
           div
-            a.flow-pointer(data-bind='click:addSplit') Add a new split
+            a.flow-pointer(data-bind='click:addSplit') 添加一个新的分割任务
       tr
         th
-          label Seed:
+          label 种子:
         td
           input.flow-textbox(type='text' style='width:100px' data-bind="value:seed")
 

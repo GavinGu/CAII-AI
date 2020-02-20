@@ -3,20 +3,20 @@
 
   table.flow-form
     tr
-      th(width='1')
-        label Path:
+      th(width='50')
+        label 路径:
       td
         input.flow-textbox(type='text' data-bind="value:path, valueUpdate:'afterkeydown'")
     tr
-      th(width='1')
-        label Overwrite:
+      th
+        label 覆盖:
       td
         input(type='checkbox' data-bind="checked:overwrite")
     tr
       th
-        label Actions:
+        label 操作:
       td
         button.flow-button(type='button' data-bind='click:importModel, enable:canImportModel')
           i.fa.fa-cloud-upload
-          span Import
+          span 导入
 
