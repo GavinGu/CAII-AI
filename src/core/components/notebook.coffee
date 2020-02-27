@@ -18,7 +18,7 @@ fileOpenDialog = require('../../ext/components/file-open-dialog')
 fileUploadDialog = require('../../ext/components/file-upload-dialog')
 
 exports.init = (_, _renderers) ->
-  _localName = signal 'Untitled Flow'
+  _localName = signal '未命名实例'
   react _localName, (name) ->
     document.title = 'H2O' + if name and name.trim() then "- #{name}" else ''
 
@@ -436,7 +436,7 @@ exports.init = (_, _renderers) ->
     _.confirm 'This action will replace your active notebook.\nAre you sure you want to continue?', { acceptCaption: 'Create New Notebook', declineCaption: 'Cancel' }, (accept) ->
       if accept
         currentTime = (new Date()).getTime()
-        deserialize 'Untitled Flow', null,
+        deserialize '未命名实例', null,
           cells: [
             type: 'cs'
             input: ''

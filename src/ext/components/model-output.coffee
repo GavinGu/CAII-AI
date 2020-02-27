@@ -276,9 +276,9 @@ module.exports = (_, _go, _model, refresh) ->
         if output = _model.output
           if output.model_category is 'Multinomial'
             if confusionMatrix = output.training_metrics?.cm?.table
-              _plots.push util.renderMultinomialConfusionMatrix 'Training Metrics - Confusion Matrix', confusionMatrix
+              _plots.push util.renderMultinomialConfusionMatrix '训练评估指标 - 困惑度矩阵', confusionMatrix
             if confusionMatrix = output.validation_metrics?.cm?.table
-              _plots.push util.renderMultinomialConfusionMatrix 'Validation Metrics - Confusion Matrix', confusionMatrix
+              _plots.push util.renderMultinomialConfusionMatrix '验证评估指标 - 困惑度矩阵', confusionMatrix
             if confusionMatrix = output.cross_validation_metrics?.cm?.table
               _plots.push util.renderMultinomialConfusionMatrix 'Cross Validation Metrics - Confusion Matrix', confusionMatrix
 
@@ -439,7 +439,7 @@ module.exports = (_, _go, _model, refresh) ->
             no, plotter, getThresholdsAndCriteria _, _model, 'output - cross_validation_metrics - Maximum Metrics'
 
         if table = _.inspect 'output - Variable Importances', _model
-          renderPlot 'Variable Importances', no, _.plot (g) ->
+          renderPlot '变量重要性', no, _.plot (g) ->
             g(
               g.rect(
                 g.position 'scaled_importance', 'variable'
@@ -451,16 +451,16 @@ module.exports = (_, _go, _model, refresh) ->
         if output = _model.output
           if output.model_category is 'Multinomial'
             if confusionMatrix = output.training_metrics?.cm?.table
-              _plots.push util.renderMultinomialConfusionMatrix 'Training Metrics - Confusion Matrix', confusionMatrix
+              _plots.push util.renderMultinomialConfusionMatrix '训练评估指标 - 困惑度矩阵', confusionMatrix
             if confusionMatrix = output.validation_metrics?.cm?.table
-              _plots.push util.renderMultinomialConfusionMatrix 'Validation Metrics - Confusion Matrix', confusionMatrix
+              _plots.push util.renderMultinomialConfusionMatrix '验证评估指标 - 困惑度矩阵', confusionMatrix
             if confusionMatrix = output.cross_validation_metrics?.cm?.table
               _plots.push util.renderMultinomialConfusionMatrix 'Cross Validation Metrics - Confusion Matrix', confusionMatrix
 
       when 'gbm', 'drf', 'svm', 'xgboost'
         if table = _.inspect 'output - Scoring History', _model
           if table.schema['validation_logloss'] and table.schema['training_logloss']
-            renderPlot 'Scoring History - logloss', no, _.plot (g) ->
+            renderPlot '历史打分 - log 损失率', no, _.plot (g) ->
               g(
                 g.path(
                   g.position 'number_of_trees', 'training_logloss'
@@ -481,7 +481,7 @@ module.exports = (_, _go, _model, refresh) ->
                 g.from table
               )
           else if table.schema['training_logloss']
-            renderPlot 'Scoring History - logloss', no, _.plot (g) ->
+            renderPlot '历史打分 - log 损失率', no, _.plot (g) ->
               g(
                 g.path(
                   g.position 'number_of_trees', 'training_logloss'
@@ -582,7 +582,7 @@ module.exports = (_, _go, _model, refresh) ->
             no, plotter, getThresholdsAndCriteria _, _model, 'output - cross_validation_metrics - Maximum Metrics'
 
         if table = _.inspect 'output - Variable Importances', _model
-          renderPlot 'Variable Importances', no, _.plot (g) ->
+          renderPlot '变量重要性', no, _.plot (g) ->
             g(
               g.rect(
                 g.position 'scaled_importance', 'variable'
@@ -593,9 +593,9 @@ module.exports = (_, _go, _model, refresh) ->
 
         if output = _model.output
           if confusionMatrix = output.training_metrics?.cm?.table
-            _plots.push util.renderMultinomialConfusionMatrix 'Training Metrics - Confusion Matrix', confusionMatrix
+            _plots.push util.renderMultinomialConfusionMatrix '训练评估指标 - 困惑度矩阵', confusionMatrix
           if confusionMatrix = output.validation_metrics?.cm?.table
-            _plots.push util.renderMultinomialConfusionMatrix 'Validation Metrics - Confusion Matrix', confusionMatrix
+            _plots.push util.renderMultinomialConfusionMatrix '验证评估指标 - 困惑度矩阵', confusionMatrix
           if confusionMatrix = output.cross_validation_metrics?.cm?.table
             _plots.push util.renderMultinomialConfusionMatrix 'Cross Validation Metrics - Confusion Matrix', confusionMatrix
     # end of when 'gbm', 'drf', 'svm', 'xgboost'
@@ -653,7 +653,7 @@ module.exports = (_, _go, _model, refresh) ->
             no, plotter, getThresholdsAndCriteria _, _model, 'output - cross_validation_metrics - Maximum Metrics'
 
         if table = _.inspect 'output - Variable Importances', _model
-          renderPlot 'Variable Importances', no, _.plot (g) ->
+          renderPlot '变量重要性', no, _.plot (g) ->
             g(
               g.rect(
                 g.position 'scaled_importance', 'variable'
@@ -665,9 +665,9 @@ module.exports = (_, _go, _model, refresh) ->
         if output = _model.output
           if output.model_category is 'Multinomial'
             if confusionMatrix = output.training_metrics?.cm?.table
-              _plots.push util.renderMultinomialConfusionMatrix 'Training Metrics - Confusion Matrix', confusionMatrix
+              _plots.push util.renderMultinomialConfusionMatrix '训练评估指标 - 困惑度矩阵', confusionMatrix
             if confusionMatrix = output.validation_metrics?.cm?.table
-              _plots.push util.renderMultinomialConfusionMatrix 'Validation Metrics - Confusion Matrix', confusionMatrix
+              _plots.push util.renderMultinomialConfusionMatrix '验证评估指标 - 困惑度矩阵', confusionMatrix
             if confusionMatrix = output.cross_validation_metrics?.cm?.table
               _plots.push util.renderMultinomialConfusionMatrix 'Cross Validation Metrics - Confusion Matrix', confusionMatrix
     # end of stackedensemble
