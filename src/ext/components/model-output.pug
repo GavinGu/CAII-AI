@@ -9,40 +9,40 @@
     table.flow-form
       tbody
         tr
-          th.flow-narrow Model ID:
+          th.flow-narrow 模型 ID:
           td.flow-wide(data-bind='text:key.name')
         tr
-          th.flow-narrow Algorithm:
+          th.flow-narrow 算法:
           td.flow-wide(data-bind='text:algo')
         tr 
-          th(width='1') Actions:
+          th(width='1') 操作:
           td
             button.flow-button(type='button' data-bind="click:$parent.toggleRefresh, css:{ 'flow-button-toggle':$parent.isLive }")
               // ko if:$parent.isLive
               i.fa.fa-refresh.fa-spin
-              | Stop
+              | 停止
               // /ko
               // ko ifnot:$parent.isLive
               i.fa.fa-refresh
-              | Refresh
+              | 刷新
               // /ko
 
-            +button('Predict&hellip;', 'bolt', 'predict')
+            +button('预测&hellip;', 'bolt', 'predict')
             //- +button('Clone this model&hellip;', 'copy', 'cloneModel')
             button.flow-button(type='button' data-bind="click: downloadPojoIfAuthed, enable: $data.havePojo")
               i.fa.fa-download
               span
-              | Download POJO
+              | 下载 POJO
             button.flow-button(type='button' data-bind="click: downloadMojoIfAuthed, enable: $data.haveMojo")
               i.fa.fa-download
               span
-              | Download Model Deployment Package (MOJO)
-            // +button('Export', 'save', 'exportModelIfAuthed')
-            +button('Inspect', 'list', 'inspect')
-            +button('Delete', 'trash-o', 'deleteModel')
-            +button('Download Gen Model', 'download', 'downloadGenJar')
+              | 下载模型部署包 (MOJO)
+            // +button('导出', 'save', 'exportModelIfAuthed')
+            +button('查验', 'list', 'inspect')
+            +button('删除', 'trash-o', 'deleteModel')
+            +button('下载 Gen Model', 'download', 'downloadGenJar')
       
-  h4(data-bind='collapse:true') Model Parameters
+  h4(data-bind='collapse:true') 模型参数
   div(data-bind="css:{ 'flow-unhide':isExpanded }")
     .flow-right.flow-margin-after 
       // ko ifnot:isExpanded
