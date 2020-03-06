@@ -20,7 +20,7 @@ fileUploadDialog = require('../../ext/components/file-upload-dialog')
 exports.init = (_, _renderers) ->
   _localName = signal '未命名实例'
   react _localName, (name) ->
-    document.title = 'H2O' + if name and name.trim() then "- #{name}" else ''
+    document.title = 'CAII' + if name and name.trim() then " - #{name}" else ''
 
   _remoteName = signal null
 
