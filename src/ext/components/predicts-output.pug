@@ -1,5 +1,5 @@
 .flow-widget
-  +subtitle('Predictions', 'bolt')
+  +subtitle('预测', 'bolt')
 
   // ko ifnot:hasPredictions
   blockquote 您的云里没有任何预测结果.
@@ -14,9 +14,9 @@
         th(width='1' style='font-size:inherit')
           input(type='checkbox' title='Select or deselect all' data-bind="checked:checkAllPredictions")
         th(width='1') &nbsp;
-        th Model
+        th 模型
         th Frame
-        th.flow-right Actions
+        th.flow-right 操作
     tbody
       // ko foreach:predictionViews
       tr
@@ -28,7 +28,7 @@
         td(data-bind='text:frameKey')
         td.flow-right 
           // ko if:hasFrame
-          +button('View', 'bolt', 'view')
+          +button('查看', 'bolt', 'view')
           // /ko
           //- +button('Inspect', 'list', 'inspect')
       // /ko
