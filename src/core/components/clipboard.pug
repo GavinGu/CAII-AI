@@ -1,38 +1,38 @@
 h4.flow-hint
   i.fa.fa-clipboard
-  | Clipboard
+  | 剪切板
 
 .flow-sidebar-content
   .flow-clipboard
     h6
-      | My Clips 
+      | 我的 
       span(data-bind='text:userClipCount')
     // ko if:hasUserClips
     div(data-bind="template:{ name:'flow-clips', data:userClips }")
     // /ko
     // ko ifnot:hasUserClips
     p
-      | You have no clips. To save a clip into this list, click the 
+      | 你没有任何编辑操作。若要将编辑保存到此列表中，请单击 
       i.fa.fa-paperclip
-      | &nbsp; paperclip next to the cell.
+      | &nbsp; 单元旁边的回形针标记.
       br
       br
-      | Click on a clip to insert it into your notebook. Click the 
+      | 点击已有的编辑操作，将它插入你当前的notebook中. 点击 
       i.fa.fa-play-circle
-      | &nbsp;button to insert and execute the clip.
+      | &nbsp;按钮执行此插入操作.
     // /ko
     h6
-      | System 
+      | 系统 
       span(data-bind='text:systemClipCount')
     div(data-bind="template:{ name:'flow-clips', data:systemClips }")
     h6
-      | Trash 
+      | 垃圾箱 
       span(data-bind='text:trashClipCount')
     // ko if:hasTrashClips
     div(data-bind="template:{ name:'flow-clips', data:trashClips }")
     div(style='margin-top:10px')
-      +button('Empty Trash', 'trash', 'emptyTrash')
+      +button('清空垃圾箱', 'trash', 'emptyTrash')
     // /ko
     // ko ifnot:hasTrashClips
-    p Trash is empty. Cells that you cut or delete from your notebook appear here.
+    p 垃圾箱是空的。你从 notebook 上剪切或删除的单元格将会出现在这里。
     // /ko

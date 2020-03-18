@@ -1,33 +1,33 @@
 .flow-widget
   h3.flow-hint
     i.fa.fa-pie-chart
-    | Summary: 
+    | 概要: 
     span(data-bind='text:label')
 
   table.flow-form
     tbody
       tr 
-        th(width='1') Actions
+        th(width='1') 操作
         td
-          +button('Impute', 'reply-all', 'impute')
-          +button('Inspect', 'list', 'inspect')
+          +button('缺省值填充', 'reply-all', 'impute')
+          +button('检查', 'list', 'inspect')
 
   // ko if:characteristicsPlot
-  h4 Characteristics
+  h4 特征
   .flow-plot(data-bind='raw:characteristicsPlot')
   // /ko
 
   // ko if:summaryPlot
-  h4 Summary
+  h4 概要
   .flow-plot(data-bind='raw:summaryPlot')
   // /ko
 
   // ko if:distributionPlot
-  h4 Distribution
+  h4 数据分布
   .flow-plot(data-bind='raw:distributionPlot')
   // /ko
 
   // ko if:domainPlot
-  h4 Domain (Max 1000 Levels)
+  h4 域（最大1000）
   .flow-plot(data-bind='raw:domainPlot')
   // /ko
